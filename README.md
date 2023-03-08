@@ -10,6 +10,8 @@ Create a new plugin by creating a new directory in the WordPress plugins directo
 Create a database table
 Use the following code to create a database table on activation of the plugin:
 
+=============================================
+
 function create_table() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'ticket_bookings';
@@ -38,8 +40,20 @@ function add_fields_to_table() {
 register_activation_hook( __FILE__, 'add_fields_to_table' );
 
 
+
+
+===================================================================
+
+
+
+
+
 Create shortcode
 Use the following code to create the shortcode [ticket_book_cf7]:
+
+
+
+===================================================================
 
 function ticket_book_cf7_shortcode() {
     global $wpdb;
@@ -75,6 +89,12 @@ function ticket_book_cf7_shortcode() {
 
 add_shortcode( 'ticket_book_cf7', 'ticket_book_cf7_shortcode' );
 
+
+
+===================================================================
+
+
+
 Add shortcode to contact form
 Add the shortcode [ticket_book_cf7] before the submit button in the contact form.
 
@@ -82,6 +102,8 @@ Add frontend functionality
 Add the following code to display 100 checkboxes in the contact form:
 
 
+
+===================================================================
 <input type="checkbox" name="ticket_number[]" value="<?php echo $i; ?>" <?php if(in_array($i, $booked_tickets)) {echo 'disabled';} ?>>
 ``
 
